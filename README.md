@@ -52,6 +52,50 @@ python research/evasion_benchmark.py --samples 1000 --json report.json
 
 详细设计见 [Detection Evasion Study](./docs/detection-evasion-study.md)。
 
+
+## Real Threat Model: IcedID (S0483)
+
+为了让实验不只停留在“自造样本”，项目现在加入 **IcedID** 作为真实威胁模型。研究数据来自公开 ATT&CK 行为证据，并映射到可安全复现的 Atomic Red Team / adversary-emulation 流程。
+
+当前覆盖 12 个重点技术，包括：
+
+- T1071.001 Web Protocols
+- T1547.001 Registry Run Keys / Startup Folder
+- T1055.004 APC Injection
+- T1055.012 Process Hollowing
+- T1082 System Information Discovery
+- T1016 System Network Configuration Discovery
+- T1518.001 Security Software Discovery
+- T1218.007 Msiexec
+- T1218.011 Rundll32
+- T1053.005 Scheduled Task
+- T1497 Virtualization/Sandbox Evasion
+- T1047 Windows Management Instrumentation
+
+运行：
+
+```bash
+python research/icedid_coverage.py
+```
+
+详细案例见 [IcedID Case Study](./docs/icedid-case-study.md)。
+
+这条链用于回答一个更接近实战的问题：
+
+```text
+真实恶意软件家族
+      ↓
+公开 ATT&CK 行为证据
+      ↓
+授权对手模拟
+      ↓
+真实终端遥测
+      ↓
+检测覆盖 / 漏报
+      ↓
+检测器加固
+```
+
 ## 研究价值
 
 - **可审计 Payload**：Manifest 完整描述实验行为，执行结果有回执。
