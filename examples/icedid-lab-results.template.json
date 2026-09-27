@@ -1,0 +1,119 @@
+{
+  "schema": "lr-payload-lab/atomic-results-v1",
+  "lab": {
+    "name": "replace-with-lab-name",
+    "host": "isolated-windows-test-host",
+    "edr": "replace-with-product",
+    "date": "YYYY-MM-DD"
+  },
+  "results": [
+    {
+      "technique_id": "T1071.001",
+      "atomic_guid": "81c13829-f6c9-45b8-85a6-053366d55297",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1547.001",
+      "atomic_guid": "e55be3fd-3521-4610-9d1a-e210e42dcf05",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1055.004",
+      "atomic_guid": "611b39b7-e243-4c81-87a4-7145a90358b1",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1055.012",
+      "atomic_guid": "562427b4-39ef-4e8c-af88-463a78e70b9c",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1082",
+      "atomic_guid": "66703791-c902-4560-8770-42b8a91f7667",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1016",
+      "atomic_guid": "970ab6a1-0157-4f3f-9a73-ec4166754b23",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1518.001",
+      "atomic_guid": "f92a380f-ced9-491f-b338-95a991418ce2",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1218.007",
+      "atomic_guid": "a059b6c4-e7d6-4b2e-bcd7-9b2b33191a04",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1218.011",
+      "atomic_guid": "57ba4ce9-ee7a-4f27-9928-3c70c489b59d",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1053.005",
+      "atomic_guid": "fec27f65-db86-4c2d-b66c-61945aee87c2",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "technique_id": "T1497",
+      "atomic_guid": null,
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": "No exact parent-level Atomic mapping; select and justify a representative sub-technique before running."
+    },
+    {
+      "technique_id": "T1047",
+      "atomic_guid": "c107778c-dcf5-47c5-af2e-1d058a3df3ea",
+      "run_status": "not_run",
+      "detection": "not_evaluated",
+      "telemetry": [],
+      "evidence": "",
+      "notes": ""
+    }
+  ]
+}

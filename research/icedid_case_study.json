@@ -1,0 +1,68 @@
+{
+  "family": "IcedID",
+  "attack_id": "S0483",
+  "platform": "Windows",
+  "scope": "public ATT&CK mapping + safe adversary-emulation coverage research",
+  "techniques": [
+    [
+      "T1071.001",
+      "Application Layer Protocol: Web Protocols",
+      "C2 over HTTPS"
+    ],
+    [
+      "T1547.001",
+      "Registry Run Keys / Startup Folder",
+      "persistence"
+    ],
+    [
+      "T1055.004",
+      "Process Injection: Asynchronous Procedure Call",
+      "remote process injection"
+    ],
+    [
+      "T1055.012",
+      "Process Injection: Process Hollowing",
+      "process hollowing"
+    ],
+    [
+      "T1082",
+      "System Information Discovery",
+      "host discovery"
+    ],
+    [
+      "T1016",
+      "System Network Configuration Discovery",
+      "network discovery"
+    ],
+    [
+      "T1518.001",
+      "Security Software Discovery",
+      "AV discovery"
+    ],
+    [
+      "T1218.007",
+      "System Binary Proxy Execution: Msiexec",
+      "proxy execution"
+    ],
+    [
+      "T1218.011",
+      "System Binary Proxy Execution: Rundll32",
+      "proxy execution"
+    ],
+    [
+      "T1053.005",
+      "Scheduled Task/Job: Scheduled Task",
+      "persistence"
+    ],
+    [
+      "T1497",
+      "Virtualization/Sandbox Evasion",
+      "sandbox filtering"
+    ],
+    [
+      "T1047",
+      "Windows Management Instrumentation",
+      "execution"
+    ]
+  ]
+}
