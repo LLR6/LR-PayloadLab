@@ -96,6 +96,23 @@ python research/icedid_coverage.py
 检测器加固
 ```
 
+
+## IcedID × Atomic Coverage Matrix
+
+项目已经把 12 个 IcedID 研究 TTP 与 Atomic Red Team 元数据接起来：
+
+- 11 个 TTP 存在同 ID 的 Atomic YAML
+- T1497 是父级技术，当前没有 exact parent-level Atomic，因此不会虚报为“已覆盖”
+- Process Injection / Process Hollowing / Msiexec / Rundll32 等高风险项只保留 metadata，不提供二次封装执行器
+- 实验结果默认全部 not_run，只有填入真实遥测和检测证据后才计入覆盖率
+
+生成矩阵：
+
+    python research/atomic_coverage_matrix.py --results examples/icedid-lab-results.template.json --markdown icedid-coverage.md --json icedid-coverage.json
+
+详情见 [IcedID × Atomic Coverage](./docs/icedid-atomic-coverage.md)。
+
+
 ## 研究价值
 
 - **可审计 Payload**：Manifest 完整描述实验行为，执行结果有回执。
