@@ -1,0 +1,120 @@
+{
+  "schema": "lr-payload-lab/atomic-coverage-map-v1",
+  "threat_model": {
+    "family": "IcedID",
+    "attack_id": "S0483",
+    "platform": "Windows"
+  },
+  "generated_from": "redcanaryco/atomic-red-team public technique YAML metadata",
+  "mappings": [
+    {
+      "technique_id": "T1071.001",
+      "technique_name": "Application Layer Protocol: Web Protocols",
+      "exact_atomic": true,
+      "atomic_guid": "81c13829-f6c9-45b8-85a6-053366d55297",
+      "atomic_name": "Malicious User Agents - Powershell",
+      "execution_policy": "isolated-lab",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1071.001/T1071.001.yaml"
+    },
+    {
+      "technique_id": "T1547.001",
+      "technique_name": "Registry Run Keys / Startup Folder",
+      "exact_atomic": true,
+      "atomic_guid": "e55be3fd-3521-4610-9d1a-e210e42dcf05",
+      "atomic_name": "Reg Key Run",
+      "execution_policy": "isolated-lab",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1547.001/T1547.001.yaml"
+    },
+    {
+      "technique_id": "T1055.004",
+      "technique_name": "Process Injection: Asynchronous Procedure Call",
+      "exact_atomic": true,
+      "atomic_guid": "611b39b7-e243-4c81-87a4-7145a90358b1",
+      "atomic_name": "Process Injection via C#",
+      "execution_policy": "metadata-only",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1055.004/T1055.004.yaml"
+    },
+    {
+      "technique_id": "T1055.012",
+      "technique_name": "Process Injection: Process Hollowing",
+      "exact_atomic": true,
+      "atomic_guid": "562427b4-39ef-4e8c-af88-463a78e70b9c",
+      "atomic_name": "Process Hollowing using PowerShell",
+      "execution_policy": "metadata-only",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1055.012/T1055.012.yaml"
+    },
+    {
+      "technique_id": "T1082",
+      "technique_name": "System Information Discovery",
+      "exact_atomic": true,
+      "atomic_guid": "66703791-c902-4560-8770-42b8a91f7667",
+      "atomic_name": "System Information Discovery",
+      "execution_policy": "isolated-lab",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1082/T1082.yaml"
+    },
+    {
+      "technique_id": "T1016",
+      "technique_name": "System Network Configuration Discovery",
+      "exact_atomic": true,
+      "atomic_guid": "970ab6a1-0157-4f3f-9a73-ec4166754b23",
+      "atomic_name": "System Network Configuration Discovery on Windows",
+      "execution_policy": "isolated-lab",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1016/T1016.yaml"
+    },
+    {
+      "technique_id": "T1518.001",
+      "technique_name": "Security Software Discovery",
+      "exact_atomic": true,
+      "atomic_guid": "f92a380f-ced9-491f-b338-95a991418ce2",
+      "atomic_name": "Security Software Discovery",
+      "execution_policy": "isolated-lab",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1518.001/T1518.001.yaml"
+    },
+    {
+      "technique_id": "T1218.007",
+      "technique_name": "Signed Binary Proxy Execution: Msiexec",
+      "exact_atomic": true,
+      "atomic_guid": "a059b6c4-e7d6-4b2e-bcd7-9b2b33191a04",
+      "atomic_name": "Msiexec.exe - Execute Local MSI file with embedded JScript",
+      "execution_policy": "metadata-only",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.007/T1218.007.yaml"
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_name": "Signed Binary Proxy Execution: Rundll32",
+      "exact_atomic": true,
+      "atomic_guid": "57ba4ce9-ee7a-4f27-9928-3c70c489b59d",
+      "atomic_name": "Rundll32 execute JavaScript Remote Payload With GetObject",
+      "execution_policy": "metadata-only",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.011/T1218.011.yaml"
+    },
+    {
+      "technique_id": "T1053.005",
+      "technique_name": "Scheduled Task/Job: Scheduled Task",
+      "exact_atomic": true,
+      "atomic_guid": "fec27f65-db86-4c2d-b66c-61945aee87c2",
+      "atomic_name": "Scheduled Task Startup Script",
+      "execution_policy": "isolated-lab",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1053.005/T1053.005.yaml"
+    },
+    {
+      "technique_id": "T1497",
+      "technique_name": "Virtualization/Sandbox Evasion",
+      "exact_atomic": false,
+      "atomic_guid": null,
+      "atomic_name": null,
+      "execution_policy": "needs-representative-subtechnique",
+      "source_url": "https://attack.mitre.org/techniques/T1497/",
+      "note": "Atomic Red Team has no exact parent-level T1497 YAML; do not count this as covered until a representative sub-technique is selected and justified."
+    },
+    {
+      "technique_id": "T1047",
+      "technique_name": "Windows Management Instrumentation",
+      "exact_atomic": true,
+      "atomic_guid": "c107778c-dcf5-47c5-af2e-1d058a3df3ea",
+      "atomic_name": "WMI Reconnaissance Users",
+      "execution_policy": "isolated-lab",
+      "source_url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1047/T1047.yaml"
+    }
+  ]
+}
