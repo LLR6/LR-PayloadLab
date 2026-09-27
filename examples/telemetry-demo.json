@@ -1,0 +1,12 @@
+{
+  "schema": "lr-payload-lab/v1",
+  "name": "bounded-endpoint-telemetry-demo",
+  "purpose": "Generate harmless file, process, hash and timing telemetry in an isolated folder.",
+  "actions": [
+    {"type": "write_marker", "path": "artifacts/canary.txt", "content": "LR-PayloadLab benign canary"},
+    {"type": "spawn_echo", "text": "PAYLOAD_LAB_PROCESS_CANARY"},
+    {"type": "hash_file", "path": "artifacts/canary.txt"},
+    {"type": "cpu_burst", "seconds": 0.05},
+    {"type": "sleep", "seconds": 0.05}
+  ]
+}

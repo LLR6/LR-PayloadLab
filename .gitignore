@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+payload-lab-workspace/
+receipt.json
+generated-payload.py
