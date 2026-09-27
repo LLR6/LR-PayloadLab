@@ -1,11 +1,13 @@
 import unittest
 from pathlib import Path
 import importlib.util
+import sys
 
 MODULE = Path(__file__).resolve().parents[1] / "research" / "evasion_benchmark.py"
 spec = importlib.util.spec_from_file_location("evasion_benchmark", MODULE)
-m = importlib.util.module_from_spec(spec)
 assert spec and spec.loader
+m = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = m
 spec.loader.exec_module(m)
 
 class EvasionBenchmarkTests(unittest.TestCase):
