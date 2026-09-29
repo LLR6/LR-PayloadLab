@@ -1,0 +1,11 @@
+{
+  "schema": "lr-payload-lab/v1",
+  "name": "rejected-network-example",
+  "actions": [
+    {
+      "type": "network_callback",
+      "host": "example.invalid",
+      "port": 443
+    }
+  ]
+}
