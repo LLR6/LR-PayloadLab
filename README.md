@@ -1,5 +1,17 @@
 # LR-PayloadLab
 
+<!-- LR-LAB-CHROME:START -->
+<p align="center">
+  <a href="https://github.com/LLR6"><img alt="LR Lab" src="https://img.shields.io/badge/LR_LAB-0x4C52-0D1117?style=for-the-badge&logo=github&logoColor=white"></a>
+  <img alt="SECURITY RESEARCH" src="https://img.shields.io/badge/SECURITY_RESEARCH-F97316?style=for-the-badge">
+</p>
+<p align="center"><strong>Bounded payloads. Verifiable research.</strong><br><sub>Auditable benign endpoint telemetry scenarios</sub></p>
+<p align="center"><a href="https://github.com/LLR6/LR-PayloadLab/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/LLR6/LR-PayloadLab?style=flat-square&logo=github&label=stars"></a>
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/LLR6/LR-PayloadLab?style=flat-square"> <img alt="Maintained" src="https://img.shields.io/badge/status-active-success?style=flat-square"></p>
+<p align="center"><a href="https://github.com/LLR6">Profile</a> · <a href="https://github.com/LLR6?tab=repositories">All projects</a> · <a href="https://github.com/LLR6/LR-PayloadLab/issues">Issues</a></p>
+<!-- LR-LAB-CHROME:END -->
+
+
 <p align="center"><img src="./docs/media/social-preview.svg" alt="LR-PayloadLab" width="100%"></p>
 <p align="center"><img src="./docs/media/demo.gif" alt="LR-PayloadLab reproducible demo" width="100%"></p>
 <p align="center"><strong>Bounded payloads. Verifiable research.</strong></p>
@@ -38,3 +50,9 @@ payload-lab build examples/telemetry-demo.json --output generated-payload.py
 下一步计划加入跨平台遥测适配器、Sigma 规则回放、实验签名、容器隔离和检测覆盖矩阵。欢迎提交新的**无害、可回滚、可观测**场景。
 
 作者：LLR6 · MIT License
+
+<!-- LR-LAB-FOOTER:START -->
+---
+<p align="center"><sub>Part of <a href="https://github.com/LLR6">LR Lab</a> · Security × AI × Android × Automation</sub><br><sub>Build things that are useful, inspectable, and reproducible.</sub></p>
+<!-- LR-LAB-FOOTER:END -->
+
