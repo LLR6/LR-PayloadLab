@@ -31,8 +31,12 @@ jobs:
             echo "expected invalid manifest to be rejected"
             exit 1
           fi
+      - name: Hash inspection artifact
+        run: sha256sum manifest-inspection.json > manifest-inspection.json.sha256
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: payload-lab-inspection-${{ matrix.python-version }}
-          path: manifest-inspection.json
+          path: |
+            manifest-inspection.json
+            manifest-inspection.json.sha256
