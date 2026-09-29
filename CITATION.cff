@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software in research, teaching, or a technical report, please cite it using the metadata below."
+title: "LR-PayloadLab"
+type: software
+authors:
+  - family-names: "LLR6"
+version: "0.2.0"
+date-released: 2026-09-29
+repository-code: "https://github.com/LLR6/LR-PayloadLab"
+url: "https://github.com/LLR6/LR-PayloadLab"
+abstract: >-
+  Bounded and auditable benign endpoint-telemetry scenarios for defensive security research.
+license: MIT
