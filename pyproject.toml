@@ -1,12 +1,23 @@
 [build-system]
-requires=["setuptools>=68"]
-build-backend="setuptools.build_meta"
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name="lr-payload-lab"
-version="0.1.0"
-description="Build bounded, auditable benign payloads for endpoint telemetry and detection research"
-requires-python=">=3.10"
+name = "lr-payload-lab"
+version = "0.1.0"
+description = "Build bounded, auditable benign payloads for endpoint telemetry and detection research"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "LLR6"}]
+keywords = ["security-research", "telemetry", "detection-engineering", "reproducibility", "sandbox"]
+
 [project.scripts]
-payload-lab="payload_lab.cli:main"
+payload-lab = "payload_lab.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/LLR6/LR-PayloadLab"
+Repository = "https://github.com/LLR6/LR-PayloadLab"
+Issues = "https://github.com/LLR6/LR-PayloadLab/issues"
+
 [tool.setuptools.packages.find]
-where=["src"]
+where = ["src"]
