@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LR-PayloadLab static inspection",
+  "type": "object",
+  "required": [
+    "schema",
+    "name",
+    "manifest_sha256",
+    "action_count",
+    "action_types",
+    "workspace_paths",
+    "declared_max_active_seconds",
+    "capabilities",
+    "caps"
+  ],
+  "properties": {
+    "schema": {
+      "const": "lr-payload-inspection/v1"
+    },
+    "name": {
+      "type": "string"
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "action_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "action_types": {
+      "type": "object"
+    },
+    "workspace_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "declared_max_active_seconds": {
+      "type": "number",
+      "minimum": 0
+    },
+    "capabilities": {
+      "type": "object",
+      "required": [
+        "network",
+        "arbitrary_command_execution",
+        "workspace_escape",
+        "allowed_actions"
+      ]
+    },
+    "caps": {
+      "type": "object"
+    }
+  }
+}
