@@ -10,6 +10,7 @@
   <img alt="Last commit" src="https://img.shields.io/github/last-commit/LLR6/LR-PayloadLab?style=flat-square"> <img alt="Maintained" src="https://img.shields.io/badge/status-active-success?style=flat-square"></p>
 <p align="center"><a href="https://github.com/LLR6">Profile</a> · <a href="https://github.com/LLR6?tab=repositories">All projects</a> · <a href="https://github.com/LLR6/LR-PayloadLab/issues">Issues</a></p>
 <!-- LR-LAB-CHROME:END -->
+<p align="center">[Threat model](docs/THREAT_MODEL.md)</p>
 
 
 <p align="center"><img src="./docs/media/social-preview.svg" alt="LR-PayloadLab" width="100%"></p>
