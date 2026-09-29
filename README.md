@@ -51,6 +51,46 @@ payload-lab build examples/telemetry-demo.json --output generated-payload.py
 
 作者：LLR6 · MIT License
 
+<!-- LR-CONTENT-UPGRADE-2:START -->
+## v0.2：实验内容也要有“指纹”
+
+`plan` 和 `run` 生成的 receipt 现在包含：
+
+```json
+{
+  "schema": "lr-payload-receipt/v2",
+  "manifest_sha256": "..."
+}
+```
+
+这个 SHA-256 来自**排序后的 canonical JSON Manifest**，因此键顺序变化不会改变实验指纹。
+
+用途不是“证明实验绝对可信”，而是回答一个更基础的问题：
+
+> 这份 receipt 到底对应哪一份行为声明？
+
+`build` 也会同时输出生成文件 SHA-256 与 Manifest SHA-256，方便把“输入实验定义”和“生成产物”放在同一条复现链里。
+
+这让实验记录从：
+
+```text
+我运行过这个场景
+```
+
+变成：
+
+```text
+Manifest digest
+      ↓
+bounded execution
+      ↓
+receipt
+      ↓
+generated artifact digest
+```
+
+<!-- LR-CONTENT-UPGRADE-2:END -->
+
 <!-- LR-LAB-FOOTER:START -->
 ---
 <p align="center"><sub>Part of <a href="https://github.com/LLR6">LR Lab</a> · Security × AI × Android × Automation</sub><br><sub>Build things that are useful, inspectable, and reproducible.</sub></p>
