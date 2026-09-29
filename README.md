@@ -91,6 +91,29 @@ generated artifact digest
 
 <!-- LR-CONTENT-UPGRADE-2:END -->
 
+<!-- LR-DEEP-CONTENT-2:START -->
+### Manifest inspection
+
+在真正执行 `plan/run` 之前，可以先静态查看 Manifest：
+
+```bash
+payload-lab inspect examples/telemetry-demo.json
+```
+
+输出会明确给出：
+
+- Manifest SHA-256；
+- action 数量与类型；
+- 会访问的相对工作区路径；
+- 声明的最大 sleep / CPU burst 时间；
+- 当前允许动作集合；
+- `network=false`；
+- `arbitrary_command_execution=false`；
+- `workspace_escape=false`。
+
+这份 inspection 现在也由 CI 自动生成并作为 artifact 保存。
+<!-- LR-DEEP-CONTENT-2:END -->
+
 <!-- LR-LAB-FOOTER:START -->
 ---
 <p align="center"><sub>Part of <a href="https://github.com/LLR6">LR Lab</a> · Security × AI × Android × Automation</sub><br><sub>Build things that are useful, inspectable, and reproducible.</sub></p>
