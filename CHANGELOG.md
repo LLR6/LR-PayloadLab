@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 - 2026-09-29
 
 ### Added
 - Canonical Manifest SHA-256 in receipts and build results.
