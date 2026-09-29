@@ -1,19 +1,32 @@
 # Roadmap
 
-## Near term
+## Current foundation
 
-- Formal Manifest JSON Schema.
-- More rollback verification tests.
-- Receipt schema validation.
-- Resource-usage summary in receipts.
-- Additional harmless telemetry actions with explicit caps.
+- Manifest validation
+- Bounded benign actions
+- Workspace escape prevention
+- Dry-run planning
+- Receipts and rollback
+- Canonical Manifest SHA-256
+- Static capability inspection
+- CI-generated inspection artifact
 
-## Medium term
+## Next
 
-- Deterministic replay checks.
-- Artifact bundle manifests.
-- Better cleanup verification after interrupted runs.
+- explicit resource-budget report;
+- richer rollback verification;
+- per-action deterministic result schema;
+- experiment bundle linking manifest / receipt / generated artifact hashes.
 
-## Permanent boundary
+## Later
 
-No arbitrary shell execution, networking, persistence, privilege escalation, credential access, stealth, evasion or workspace escape.
+- additional benign telemetry scenarios;
+- platform-specific telemetry notes;
+- detector-validation recipes.
+
+## Non-goals
+
+- arbitrary command execution;
+- stealth / persistence / credential access;
+- bypass or evasion payload generation;
+- uncontrolled networking.
