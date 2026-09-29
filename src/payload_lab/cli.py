@@ -28,6 +28,33 @@ def safe_path(root,relative):
     if p!=root and root not in p.parents:raise ValueError("path escaped workspace")
     return p
 
+def inspect_manifest(manifest):
+    validate(manifest)
+    counts={}
+    paths=[]
+    max_wait=0.0
+    for action in manifest["actions"]:
+        typ=action["type"];counts[typ]=counts.get(typ,0)+1
+        if typ in {"write_marker","hash_file"}:paths.append(str(action.get("path","")))
+        if typ=="sleep":max_wait+=float(action.get("seconds",0))
+        if typ=="cpu_burst":max_wait+=float(action.get("seconds",0))
+    return {
+        "schema":"lr-payload-inspection/v1",
+        "name":manifest.get("name","unnamed"),
+        "manifest_sha256":manifest_digest(manifest),
+        "action_count":len(manifest["actions"]),
+        "action_types":dict(sorted(counts.items())),
+        "workspace_paths":sorted(set(paths)),
+        "declared_max_active_seconds":round(max_wait,3),
+        "capabilities":{
+            "network":False,
+            "arbitrary_command_execution":False,
+            "workspace_escape":False,
+            "allowed_actions":sorted(ALLOWED),
+        },
+        "caps":dict(CAPS),
+    }
+
 def execute(manifest,workspace,dry_run=False):
     validate(manifest); workspace.mkdir(parents=True,exist_ok=True)
     receipt={"schema":"lr-payload-receipt/v2","scenario":manifest.get("name","unnamed"),
@@ -75,6 +102,7 @@ def main(argv=None):
     sub=p.add_subparsers(dest="cmd",required=True)
     for name in ("plan","run"):
         q=sub.add_parser(name);q.add_argument("manifest",type=Path);q.add_argument("--workspace",type=Path,default=Path("payload-lab-workspace"));q.add_argument("--receipt",type=Path)
+    q=sub.add_parser("inspect");q.add_argument("manifest",type=Path)
     q=sub.add_parser("build");q.add_argument("manifest",type=Path);q.add_argument("--output",type=Path,required=True)
     q=sub.add_parser("rollback");q.add_argument("receipt",type=Path);q.add_argument("--workspace",type=Path,default=Path("payload-lab-workspace"))
     a=p.parse_args(argv)
@@ -82,7 +110,8 @@ def main(argv=None):
         if a.cmd=="rollback":result={"removed":rollback(json.loads(a.receipt.read_text()),a.workspace)}
         else:
             manifest=validate(json.loads(a.manifest.read_text(encoding="utf-8")))
-            if a.cmd=="build":result={"output":str(a.output),"sha256":build(manifest,a.output),"manifest_sha256":manifest_digest(manifest)}
+            if a.cmd=="inspect":result=inspect_manifest(manifest)
+            elif a.cmd=="build":result={"output":str(a.output),"sha256":build(manifest,a.output),"manifest_sha256":manifest_digest(manifest)}
             else:
                 result=execute(manifest,a.workspace,a.cmd=="plan")
                 if a.receipt:a.receipt.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
