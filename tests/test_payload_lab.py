@@ -1,6 +1,6 @@
 import json,tempfile,unittest
 from pathlib import Path
-from payload_lab.cli import build,execute,manifest_digest,rollback,validate
+from payload_lab.cli import build,execute,inspect_manifest,manifest_digest,rollback,validate
 
 MANIFEST={"schema":"lr-payload-lab/v1","name":"test","actions":[{"type":"write_marker","path":"x/a.txt","content":"ok"},{"type":"spawn_echo","text":"hello"},{"type":"hash_file","path":"x/a.txt"}]}
 class PayloadTests(unittest.TestCase):
@@ -17,4 +17,11 @@ class PayloadTests(unittest.TestCase):
   reordered={"name":"test","actions":MANIFEST["actions"],"schema":"lr-payload-lab/v1"}
   self.assertEqual(manifest_digest(MANIFEST),manifest_digest(reordered))
   self.assertEqual(len(manifest_digest(MANIFEST)),64)
+ def test_inspection_declares_bounded_capabilities(self):
+  report=inspect_manifest(MANIFEST)
+  self.assertEqual(report["action_count"],3)
+  self.assertEqual(report["action_types"]["write_marker"],1)
+  self.assertFalse(report["capabilities"]["network"])
+  self.assertFalse(report["capabilities"]["arbitrary_command_execution"])
+  self.assertIn("x/a.txt",report["workspace_paths"])
 if __name__=="__main__":unittest.main()
