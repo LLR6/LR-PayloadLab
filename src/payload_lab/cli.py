@@ -5,6 +5,10 @@ from pathlib import Path
 ALLOWED={"write_marker","spawn_echo","hash_file","sleep","cpu_burst"}
 CAPS={"sleep_seconds":2.0,"cpu_seconds":1.0,"actions":20,"marker_bytes":4096}
 
+def manifest_digest(manifest):
+    canonical=json.dumps(manifest,ensure_ascii=False,sort_keys=True,separators=(",",":")).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
+
 def validate(manifest):
     if manifest.get("schema")!="lr-payload-lab/v1":raise ValueError("unsupported schema")
     actions=manifest.get("actions")
@@ -26,7 +30,8 @@ def safe_path(root,relative):
 
 def execute(manifest,workspace,dry_run=False):
     validate(manifest); workspace.mkdir(parents=True,exist_ok=True)
-    receipt={"schema":"lr-payload-receipt/v1","scenario":manifest.get("name","unnamed"),
+    receipt={"schema":"lr-payload-receipt/v2","scenario":manifest.get("name","unnamed"),
+             "manifest_sha256":manifest_digest(manifest),
              "started_at":datetime.now(timezone.utc).isoformat(),"dry_run":dry_run,"events":[],"rollback":[]}
     for index,a in enumerate(manifest["actions"],1):
         typ=a["type"]; event={"id":f"E{index:03d}","action":typ,"status":"planned" if dry_run else "completed"}
@@ -77,7 +82,7 @@ def main(argv=None):
         if a.cmd=="rollback":result={"removed":rollback(json.loads(a.receipt.read_text()),a.workspace)}
         else:
             manifest=validate(json.loads(a.manifest.read_text(encoding="utf-8")))
-            if a.cmd=="build":result={"output":str(a.output),"sha256":build(manifest,a.output)}
+            if a.cmd=="build":result={"output":str(a.output),"sha256":build(manifest,a.output),"manifest_sha256":manifest_digest(manifest)}
             else:
                 result=execute(manifest,a.workspace,a.cmd=="plan")
                 if a.receipt:a.receipt.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
