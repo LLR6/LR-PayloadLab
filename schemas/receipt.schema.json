@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LR-PayloadLab receipt",
+  "type": "object",
+  "required": [
+    "schema",
+    "scenario",
+    "manifest_sha256",
+    "started_at",
+    "dry_run",
+    "events",
+    "rollback",
+    "finished_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "lr-payload-receipt/v2"
+    },
+    "scenario": {
+      "type": "string"
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "finished_at": {
+      "type": "string"
+    },
+    "dry_run": {
+      "type": "boolean"
+    },
+    "events": {
+      "type": "array"
+    },
+    "rollback": {
+      "type": "array"
+    }
+  }
+}
