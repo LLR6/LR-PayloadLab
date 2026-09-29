@@ -1,6 +1,14 @@
 import argparse,hashlib,json,subprocess,sys,time
 from datetime import datetime,timezone
 from pathlib import Path
+from importlib.metadata import PackageNotFoundError, version
+
+def package_version():
+    try:
+        return version("lr-payload-lab")
+    except PackageNotFoundError:
+        return "dev"
+
 
 ALLOWED={"write_marker","spawn_echo","hash_file","sleep","cpu_burst"}
 CAPS={"sleep_seconds":2.0,"cpu_seconds":1.0,"actions":20,"marker_bytes":4096}
@@ -99,6 +107,7 @@ def build(manifest,out):
 
 def main(argv=None):
     p=argparse.ArgumentParser(description="Build and run bounded, auditable research payloads")
+    p.add_argument("--version",action="version",version=f"%(prog)s {package_version()}")
     sub=p.add_subparsers(dest="cmd",required=True)
     for name in ("plan","run"):
         q=sub.add_parser(name);q.add_argument("manifest",type=Path);q.add_argument("--workspace",type=Path,default=Path("payload-lab-workspace"));q.add_argument("--receipt",type=Path)
