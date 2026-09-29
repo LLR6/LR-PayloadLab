@@ -2,9 +2,14 @@ name: Test
 on: [push, pull_request]
 permissions:
   contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       matrix:
         python-version: ["3.11", "3.12"]
@@ -14,6 +19,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install -e .
+      - name: CLI version smoke test
+        run: payload-lab --version
       - run: python -m unittest discover -s tests
       - name: Inspect bounded manifest
         run: payload-lab inspect examples/telemetry-demo.json > manifest-inspection.json
